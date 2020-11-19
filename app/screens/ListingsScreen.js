@@ -1,7 +1,8 @@
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
-import Card from "../components/Card";
+
 import Screen from "../components/Screen";
+import Card from "../components/Card";
 import colors from "../config/colors";
 
 const listings = [
@@ -19,7 +20,7 @@ const listings = [
   },
 ];
 
-function ListingScreen(props) {
+function ListingsScreen(props) {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -44,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListingScreen;
+export default ListingsScreen;

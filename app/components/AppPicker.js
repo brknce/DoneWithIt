@@ -8,13 +8,13 @@ import {
   FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import Screen from "./Screen";
 
-import defaultStyles from "../config/styles";
 import AppText from "./AppText";
+import Screen from "./Screen";
+import defaultStyles from "../config/styles";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, placeholder, items, onSelectItem, selectedItem }) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -29,9 +29,12 @@ function AppPicker({ icon, placeholder, items, onSelectItem, selectedItem }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -41,7 +44,7 @@ function AppPicker({ icon, placeholder, items, onSelectItem, selectedItem }) {
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
-          <Button title="close" onPress={() => setModalVisible(false)} />
+          <Button title="Close" onPress={() => setModalVisible(false)} />
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
@@ -72,6 +75,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  placeholder: {
+    color: defaultStyles.colors.medium,
+    flex: 1,
   },
   text: {
     flex: 1,

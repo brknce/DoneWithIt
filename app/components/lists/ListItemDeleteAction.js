@@ -1,9 +1,10 @@
 import React from "react";
 import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
-import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-function LİstItemDeleteAction({ onPress }) {
+import colors from "../../config/colors";
+
+function ListItemDeleteAction({ onPress }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
@@ -26,4 +27,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LİstItemDeleteAction;
+export default ListItemDeleteAction;
