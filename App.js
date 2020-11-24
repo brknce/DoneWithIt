@@ -12,6 +12,7 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 */
+
 import ListingDetailScreen from "./app/screens/ListingDetailsScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 
